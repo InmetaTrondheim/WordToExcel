@@ -1,0 +1,20 @@
+﻿<Window x:Class="WordToExcelWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WordToExcelWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="btnSource" Margin="58,67,576,302" Click="BtnSource_Click">Choose Word document</Button>
+        <TextBox Name="txbInput" Margin="58,18,321,365"/>
+
+        <Button Name="btnDestinationFolder" Margin="58,233,576,137" Click="BtnDestinationFolder_Click">Choose destination folder</Button>
+        <TextBox Name="txbOutput" Margin="58,184,321,199">output.xlsx</TextBox>
+
+        <Button Name="btnConvert" Margin="58,310,576,55" Click="BtnConvert_Click_1">Convert</Button>
+
+        <Label Name="lblWorking" Height="32" Width="150" Margin="321,289,321,98" Visibility="Hidden">Working please wait...</Label>
+    </Grid>
+</Window>
