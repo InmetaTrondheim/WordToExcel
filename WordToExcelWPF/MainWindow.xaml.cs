@@ -65,7 +65,9 @@ namespace WordToExcelWPF
                 if (styleName == "Heading 2")
                 {
                     //Console.WriteLine(text.ToString());
+                    AddNumberToList(text);
                     heading4List.Add(text.ToString());
+
                     arrayCounter++;
 
                 }
@@ -81,17 +83,7 @@ namespace WordToExcelWPF
                     //    int hourInt = int.Parse(hour);
                     //    totHours += hourInt;
                     //}
-                    if (text.Contains('('))
-                    {
-                        string after = text.Substring(text.IndexOf('('));
-                        string resultString = Regex.Match(after, @"\d+").Value;
-                        if (resultString != "")
-                        {
-                            numbersArr[arrayCounter] = resultString;
-                            int hour = int.Parse(resultString);
-                            totHours += hour;
-                        }
-                    }
+                    AddNumberToList(text);
 
 
                     heading4List.Add("           " + text.ToString());
@@ -102,6 +94,21 @@ namespace WordToExcelWPF
             }
 
             document.Close();
+        }
+
+        private void AddNumberToList(string text)
+        {
+            if (text.Contains('('))
+            {
+                string after = text.Substring(text.IndexOf('('));
+                string resultString = Regex.Match(after, @"\d+").Value;
+                if (resultString != "")
+                {
+                    numbersArr[arrayCounter] = resultString;
+                    int hour = int.Parse(resultString);
+                    totHours += hour;
+                }
+            }
         }
 
         private void CreateExcel()
